@@ -4,17 +4,24 @@
  */
 package lab6p2_diegomaradiaga;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author df346
  */
 public class Spotify extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Spotify
-     */
+    
+    ArrayList<Usuarios> Lusuarios = new ArrayList();
+    ArrayList<Cancion> Lcanciones = new ArrayList();
+    ArrayList<Playlist> Lplaylist = new ArrayList();
+    ArrayList<Lanzamiento> Lanzamientos = new ArrayList();
+    
     public Spotify() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -26,21 +33,349 @@ public class Spotify extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jDialog_agregarusuario = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTF_usuario = new javax.swing.JTextField();
+        jTF_contra = new javax.swing.JTextField();
+        Cancelar = new javax.swing.JButton();
+        jbtn_anadir = new javax.swing.JButton();
+        jFrame_principal = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane_artista = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jL_titulo = new javax.swing.JLabel();
+        jTF_titulo = new javax.swing.JTextField();
+        jL_titulo1 = new javax.swing.JLabel();
+        jL_titulo2 = new javax.swing.JLabel();
+        jFTF_duracion = new javax.swing.JFormattedTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jPanel4 = new javax.swing.JPanel();
+        jP_fondo = new javax.swing.JPanel();
+        jL_spotify = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTF_username = new javax.swing.JTextField();
+        jPF_contra = new javax.swing.JPasswordField();
+        jbtn_ingresar = new javax.swing.JButton();
+        jbtn_crearcuenta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 871, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oyente", "Usuario" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Edad :");
+
+        jSpinner1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(12, 12, 100, 1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Username :");
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Password :");
+
+        jTF_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        jTF_usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTF_usuario.setForeground(new java.awt.Color(0, 0, 0));
+        jTF_usuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTF_contra.setBackground(new java.awt.Color(255, 255, 255));
+        jTF_contra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTF_contra.setForeground(new java.awt.Color(0, 0, 0));
+        jTF_contra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Cancelar.setBackground(new java.awt.Color(43, 43, 43));
+        Cancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        Cancelar.setText("Cancelar");
+
+        jbtn_anadir.setBackground(new java.awt.Color(43, 43, 43));
+        jbtn_anadir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtn_anadir.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_anadir.setText("Añadir");
+        jbtn_anadir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtn_anadirMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jbtn_anadir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTF_usuario)
+                        .addComponent(jTF_contra)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTF_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTF_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(jbtn_anadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
+
+        javax.swing.GroupLayout jDialog_agregarusuarioLayout = new javax.swing.GroupLayout(jDialog_agregarusuario.getContentPane());
+        jDialog_agregarusuario.getContentPane().setLayout(jDialog_agregarusuarioLayout);
+        jDialog_agregarusuarioLayout.setHorizontalGroup(
+            jDialog_agregarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jDialog_agregarusuarioLayout.setVerticalGroup(
+            jDialog_agregarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+
+        jL_titulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jL_titulo.setForeground(new java.awt.Color(0, 0, 0));
+        jL_titulo.setText("Titulo");
+
+        jTF_titulo.setBackground(new java.awt.Color(255, 255, 255));
+        jTF_titulo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTF_titulo.setForeground(new java.awt.Color(0, 0, 0));
+
+        jL_titulo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jL_titulo1.setForeground(new java.awt.Color(0, 0, 0));
+        jL_titulo1.setText("Tiempo de  duración :");
+
+        jL_titulo2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jL_titulo2.setForeground(new java.awt.Color(0, 0, 0));
+        jL_titulo2.setText("min.");
+
+        jFTF_duracion.setBackground(new java.awt.Color(255, 255, 255));
+        jFTF_duracion.setForeground(new java.awt.Color(0, 0, 0));
+        jFTF_duracion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Album", "Single" }));
+        jComboBox2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de Lanzamiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jL_titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jFTF_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jL_titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jL_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTF_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(650, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTF_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jL_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jL_titulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jL_titulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jFTF_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(218, 218, 218))
+        );
+
+        jTabbedPane_artista.addTab("Crear Cancion", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setForeground(new java.awt.Color(153, 153, 153));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1032, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 542, Short.MAX_VALUE)
+        );
+
+        jTabbedPane_artista.addTab("Crear Álbum", jPanel4);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_artista)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_artista)
+        );
+
+        javax.swing.GroupLayout jFrame_principalLayout = new javax.swing.GroupLayout(jFrame_principal.getContentPane());
+        jFrame_principal.getContentPane().setLayout(jFrame_principalLayout);
+        jFrame_principalLayout.setHorizontalGroup(
+            jFrame_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame_principalLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jFrame_principalLayout.setVerticalGroup(
+            jFrame_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jL_spotify.setFont(new java.awt.Font("Sansburg", 1, 48)); // NOI18N
+        jL_spotify.setForeground(new java.awt.Color(255, 255, 255));
+        jL_spotify.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_spotify.setText("Spotify");
+        jP_fondo.add(jL_spotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 150, 90));
+
+        jLabel2.setFont(new java.awt.Font("Sansburg", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Password :");
+        jP_fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Sansburg", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Username :");
+        jP_fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
+
+        jTF_username.setBackground(new java.awt.Color(43, 43, 43));
+        jTF_username.setFont(new java.awt.Font("Sansburg", 0, 18)); // NOI18N
+        jTF_username.setForeground(new java.awt.Color(255, 255, 255));
+        jTF_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jP_fondo.add(jTF_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 320, 50));
+
+        jPF_contra.setBackground(new java.awt.Color(43, 43, 43));
+        jPF_contra.setForeground(new java.awt.Color(255, 255, 255));
+        jP_fondo.add(jPF_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 320, 50));
+
+        jbtn_ingresar.setBackground(new java.awt.Color(112, 204, 108));
+        jbtn_ingresar.setFont(new java.awt.Font("Sansburg", 1, 24)); // NOI18N
+        jbtn_ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_ingresar.setText("Ingresar");
+        jbtn_ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtn_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtn_ingresarMouseClicked(evt);
+            }
+        });
+        jP_fondo.add(jbtn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 320, 50));
+
+        jbtn_crearcuenta.setBackground(new java.awt.Color(112, 204, 108));
+        jbtn_crearcuenta.setFont(new java.awt.Font("Sansburg", 0, 24)); // NOI18N
+        jbtn_crearcuenta.setForeground(new java.awt.Color(112, 204, 108));
+        jbtn_crearcuenta.setText("Cree una cuenta");
+        jbtn_crearcuenta.setContentAreaFilled(false);
+        jbtn_crearcuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtn_crearcuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtn_crearcuentaMouseClicked(evt);
+            }
+        });
+        jP_fondo.add(jbtn_crearcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 550, 530, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FondoPlaylist.png"))); // NOI18N
+        jP_fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jP_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtn_crearcuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_crearcuentaMouseClicked
+        crearcuenta();
+        jTF_username.setText("");
+        jPF_contra.setText("");
+    }//GEN-LAST:event_jbtn_crearcuentaMouseClicked
+
+    private void jbtn_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_ingresarMouseClicked
+        
+        for (int i = 0; i < Lusuarios.size(); i++) {
+            String registro = jTF_username.getText();
+            String contra = jPF_contra.getText();
+            
+            if(Lusuarios.isEmpty()){
+                JOptionPane.showMessageDialog(this, "No hay ningun usuario");
+            }else if (Lusuarios.get(i).getUsername().equals(registro)&&Lusuarios.get(i).getContra().equals(contra)){
+                abrirFrame();
+                jTF_username.setText("");
+                jPF_contra.setText("");
+            }else{
+                JOptionPane.showMessageDialog(this, "Usuario o contrasena no valida");
+            }
+        }
+        
+    }//GEN-LAST:event_jbtn_ingresarMouseClicked
+
+    private void jbtn_anadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_anadirMouseClicked
+        /
+    }//GEN-LAST:event_jbtn_anadirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -76,7 +411,52 @@ public class Spotify extends javax.swing.JFrame {
             }
         });
     }
-
+    public void crearcuenta(){
+        jDialog_agregarusuario.setModal(true);
+        jDialog_agregarusuario.pack();
+        jDialog_agregarusuario.setLocationRelativeTo(this);
+        jDialog_agregarusuario.setVisible(true);
+    }
+    
+    public void abrirFrame(){
+        this.dispose();
+        jFrame_principal.pack();
+        jFrame_principal.setExtendedState(MAXIMIZED_BOTH);
+        jFrame_principal.setLocationRelativeTo(this);
+        jFrame_principal.setVisible(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JDialog jDialog_agregarusuario;
+    private javax.swing.JFormattedTextField jFTF_duracion;
+    private javax.swing.JFrame jFrame_principal;
+    private javax.swing.JLabel jL_spotify;
+    private javax.swing.JLabel jL_titulo;
+    private javax.swing.JLabel jL_titulo1;
+    private javax.swing.JLabel jL_titulo2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPasswordField jPF_contra;
+    private javax.swing.JPanel jP_fondo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jTF_contra;
+    private javax.swing.JTextField jTF_titulo;
+    private javax.swing.JTextField jTF_username;
+    private javax.swing.JTextField jTF_usuario;
+    private javax.swing.JTabbedPane jTabbedPane_artista;
+    private javax.swing.JButton jbtn_anadir;
+    private javax.swing.JButton jbtn_crearcuenta;
+    private javax.swing.JButton jbtn_ingresar;
     // End of variables declaration//GEN-END:variables
 }
