@@ -11,8 +11,8 @@ public class Oyente extends Usuarios{
         super();
     }
 
-    public Oyente(String username, String contra, int edad) {
-        super(username, contra, edad);
+    public Oyente(String username, String contra, String tipo, int edad) {
+        super(username, contra, tipo, edad);
     }
 
     public ArrayList<Cancion> getListaCancionesfavs() {

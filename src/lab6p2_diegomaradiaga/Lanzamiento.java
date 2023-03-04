@@ -16,6 +16,11 @@ public class Lanzamiento {
         this.conteolikes = conteolikes;
     }
 
+    public Lanzamiento(String titulo, int conteolikes) {
+        this.titulo = titulo;
+        this.conteolikes = conteolikes;
+    }
+    
     public String getTitulo() {
         return titulo;
     }

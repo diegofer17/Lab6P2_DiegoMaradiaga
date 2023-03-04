@@ -11,10 +11,10 @@ public class Artista extends Usuarios{
         super();
     }
 
-    public Artista(String username, String contra, int edad) {
-        super(username, contra, edad);
+    public Artista(String username, String contra, String tipo, int edad) {
+        super(username, contra, tipo, edad);
     }
-
+    
     public String getNameArtistico() {
         return NameArtistico;
     }

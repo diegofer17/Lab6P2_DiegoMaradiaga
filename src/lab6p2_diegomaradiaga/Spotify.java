@@ -4,8 +4,17 @@
  */
 package lab6p2_diegomaradiaga;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -42,7 +51,6 @@ public class Spotify extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTF_usuario = new javax.swing.JTextField();
         jTF_contra = new javax.swing.JTextField();
-        Cancelar = new javax.swing.JButton();
         jbtn_anadir = new javax.swing.JButton();
         jFrame_principal = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
@@ -53,8 +61,17 @@ public class Spotify extends javax.swing.JFrame {
         jL_titulo1 = new javax.swing.JLabel();
         jL_titulo2 = new javax.swing.JLabel();
         jFTF_duracion = new javax.swing.JFormattedTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jL_titulo4 = new javax.swing.JLabel();
+        jTF_tituloalbum = new javax.swing.JTextField();
+        jFrame_principalOyente = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        btn_cancionesfavs = new javax.swing.JButton();
         jP_fondo = new javax.swing.JPanel();
         jL_spotify = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -70,7 +87,7 @@ public class Spotify extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oyente", "Usuario" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oyente", "Artista" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -101,11 +118,6 @@ public class Spotify extends javax.swing.JFrame {
         jTF_contra.setForeground(new java.awt.Color(0, 0, 0));
         jTF_contra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        Cancelar.setBackground(new java.awt.Color(43, 43, 43));
-        Cancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        Cancelar.setText("Cancelar");
-
         jbtn_anadir.setBackground(new java.awt.Color(43, 43, 43));
         jbtn_anadir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbtn_anadir.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,10 +135,7 @@ public class Spotify extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(jbtn_anadir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtn_anadir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -158,9 +167,7 @@ public class Spotify extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jTF_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(jbtn_anadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jbtn_anadir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -199,11 +206,6 @@ public class Spotify extends javax.swing.JFrame {
         jFTF_duracion.setForeground(new java.awt.Color(0, 0, 0));
         jFTF_duracion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Album", "Single" }));
-        jComboBox2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de Lanzamiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -211,18 +213,16 @@ public class Spotify extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jL_titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jFTF_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jL_titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jL_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTF_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jL_titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jFTF_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jL_titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jL_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(650, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -237,9 +237,7 @@ public class Spotify extends javax.swing.JFrame {
                     .addComponent(jL_titulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jL_titulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jFTF_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(218, 218, 218))
+                .addGap(328, 328, 328))
         );
 
         jTabbedPane_artista.addTab("Crear Cancion", jPanel3);
@@ -247,18 +245,46 @@ public class Spotify extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setForeground(new java.awt.Color(153, 153, 153));
 
+        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Album", "Single" }));
+        jComboBox3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de Lanzamiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        jL_titulo4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jL_titulo4.setForeground(new java.awt.Color(0, 0, 0));
+        jL_titulo4.setText("Titulo");
+
+        jTF_tituloalbum.setBackground(new java.awt.Color(255, 255, 255));
+        jTF_tituloalbum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTF_tituloalbum.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1032, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jL_titulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_tituloalbum, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(650, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTF_tituloalbum, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jL_titulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jTabbedPane_artista.addTab("Crear Álbum", jPanel4);
+        jTabbedPane_artista.addTab("Crear Lanzamiento", jPanel4);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -282,6 +308,55 @@ public class Spotify extends javax.swing.JFrame {
         jFrame_principalLayout.setVerticalGroup(
             jFrame_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel5.setBackground(new java.awt.Color(153, 153, 153));
+
+        jList1.setModel(new DefaultListModel(););
+        jScrollPane1.setViewportView(jList1);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Playlists");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jTree1);
+
+        btn_cancionesfavs.setText("Listar canciones favoritas");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btn_cancionesfavs, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(265, 265, 265)
+                .addComponent(btn_cancionesfavs, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jFrame_principalOyenteLayout = new javax.swing.GroupLayout(jFrame_principalOyente.getContentPane());
+        jFrame_principalOyente.getContentPane().setLayout(jFrame_principalOyenteLayout);
+        jFrame_principalOyenteLayout.setHorizontalGroup(
+            jFrame_principalOyenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jFrame_principalOyenteLayout.setVerticalGroup(
+            jFrame_principalOyenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -374,7 +449,26 @@ public class Spotify extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_ingresarMouseClicked
 
     private void jbtn_anadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_anadirMouseClicked
-        /
+        int index = jComboBox1.getSelectedIndex();
+        String ind = "";
+        if (jComboBox1.getItemAt(index).toString().equals("Artista")) {
+            try {
+                Lusuarios.add(new Usuarios(jTF_username.getText(), jTF_contra.getText(), "Artista", Integer.parseInt(jSpinner1.getValue().toString())));
+                JOptionPane.showMessageDialog(this, "Usuario creado");
+                Bitacora();
+            } catch (IOException ex) {
+                Logger.getLogger(Spotify.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(jComboBox1.getItemAt(index).toString().equals("Oyente")){
+            try {
+                Lusuarios.add(new Usuarios(jTF_username.getText(), jTF_contra.getText(), "Oyente", Integer.parseInt(jSpinner1.getValue().toString())));
+                JOptionPane.showMessageDialog(this, "Usuario creado");
+                Bitacora();
+            } catch (IOException ex) {
+                Logger.getLogger(Spotify.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        volver();
     }//GEN-LAST:event_jbtn_anadirMouseClicked
 
     /**
@@ -411,6 +505,11 @@ public class Spotify extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void volver(){
+        jDialog_agregarusuario.dispose();
+    }
+    
     public void crearcuenta(){
         jDialog_agregarusuario.setModal(true);
         jDialog_agregarusuario.pack();
@@ -426,35 +525,66 @@ public class Spotify extends javax.swing.JFrame {
         jFrame_principal.setVisible(true);
     }
     
+    public void Bitacora() throws IOException{
+        String user = jTF_username.getText();
+        String tipo = jComboBox1.getSelectedItem().toString();
+        Date fecha  = new Date();
+        
+        File archivo = null;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            archivo = new File("./Bitacora.txt");
+            fw = new FileWriter(archivo,true);
+            bw = new BufferedWriter(fw);
+            bw.write(""+user+";"+tipo+";"+fecha+";");
+            bw.newLine();
+            
+            bw.flush();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        bw.close();
+        fw.close();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cancelar;
+    private javax.swing.JButton btn_cancionesfavs;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JDialog jDialog_agregarusuario;
     private javax.swing.JFormattedTextField jFTF_duracion;
     private javax.swing.JFrame jFrame_principal;
+    private javax.swing.JFrame jFrame_principalOyente;
     private javax.swing.JLabel jL_spotify;
     private javax.swing.JLabel jL_titulo;
     private javax.swing.JLabel jL_titulo1;
     private javax.swing.JLabel jL_titulo2;
+    private javax.swing.JLabel jL_titulo4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPasswordField jPF_contra;
     private javax.swing.JPanel jP_fondo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTF_contra;
     private javax.swing.JTextField jTF_titulo;
+    private javax.swing.JTextField jTF_tituloalbum;
     private javax.swing.JTextField jTF_username;
     private javax.swing.JTextField jTF_usuario;
     private javax.swing.JTabbedPane jTabbedPane_artista;
+    private javax.swing.JTree jTree1;
     private javax.swing.JButton jbtn_anadir;
     private javax.swing.JButton jbtn_crearcuenta;
     private javax.swing.JButton jbtn_ingresar;
